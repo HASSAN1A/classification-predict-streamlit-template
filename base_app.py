@@ -24,7 +24,7 @@
 # Streamlit dependencies
 import streamlit as st
 import joblib,os
-
+from PIL import Image
 # Data dependencies
 import pandas as pd
 
@@ -46,14 +46,17 @@ def main():
 
 	# Creating sidebar with selection box -
 	# you can create multiple pages this way
-	options = ["Prediction", "Information", "EDA", "Preprocessing", "Hyperparamater Tuning"]
+	options = ["Prediction", "Information", "EDA", "Project Team", "Hyperparamater Tuning"]
 	selection = st.sidebar.selectbox("Choose Option", options)
 
 	# Building out the "Information" page
 	if selection == "Information":
-		st.info("General Information")
+		st.info("This is a simple Streamlit app that will help you build a classification model to help tackle global warming.")
+		st.write('Global warming is a growing issue that affects the Earth’s climate. ')	
+		image= Image.open('resources/imgs/climate.jpeg')
+		st.image(image, caption='https://www.un.org/en/climatechange/what-is-climate-change', use_column_width=True)
 		# You can read a markdown file from supporting resources folder
-		st.markdown("Some information here")
+		st.markdown("Climate change refers to long-term shifts in temperatures and weather patterns.")
 
 		st.subheader("Raw Twitter data and label")
 		if st.checkbox('Show raw data'): # data is hidden if box is unchecked
@@ -70,7 +73,7 @@ def main():
 			vect_text = tweet_cv.transform([tweet_text]).toarray()
 			# Load your .pkl file with the model of your choice + make predictions
 			# Try loading in multiple models to give the user a choice
-			predictor = joblib.load(open(os.path.join("resources/Logistic_regression.pkl"),"rb"))
+			predictor = joblib.load(open(os.path.join("resources/Lsvc_tfidf.pkl"),"rb"))
 			prediction = predictor.predict(vect_text)
 
 			# When model has successfully run, will print prediction
@@ -78,21 +81,18 @@ def main():
 			# more human interpretable.
 			st.success("Text Categorized as: {}".format(prediction))
 	if selection == "EDA":
-		st.info("General Information")
+		st.info("We removed issues which may impact data modelability")
 		# You can read a markdown file from supporting resources folder
-		st.markdown("Some information here")
-	if selection == "Preprocessing":
-		st.info("General Information")
+		st.markdown("Investigated - visualisation, summarised, cleaned")
+	if selection == "Project Team":
+		st.info("Hassan Juma & Davis Njogu")
 		# You can read a markdown file from supporting resources folder
-		st.markdown("Some information here")
+		st.markdown("Thanks it was nice working on this project")
 	if selection == "Hyperparamater Tuning":
-		st.info("General Information")
+		st.info("Hyperparameter tuning is choosing a set of optimal hyperparameters for a learning algorithm. ")
 		# You can read a markdown file from supporting resources folder
-		st.markdown("Some information here")
-	if selection == "EDA":
-		st.info("General Infedasffg")
-		# You can read a markdown file from supporting resources folder
-		st.markdown("our eda")
+		st.markdown("A hyperparameter is a model argument whose value is set before the learning process begins. The key to machine learning algorithms is hyperparameter tuning.")
+
 
 # Required to let Streamlit instantiate our web app.  
 if __name__ == '__main__':
