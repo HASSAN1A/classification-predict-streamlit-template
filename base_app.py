@@ -64,7 +64,7 @@ def main():
 
 	# Building out the predication page
 	if selection == "Prediction":
-		st.info("Prediction with ML Models")
+		st.info("Prediction with ML Logistic Regression with TF-IDF Vectorizer, multiclass classification model and GridSearchCV")
 		# Creating a text box for user input
 		tweet_text = st.text_area("Enter Text","Type Here")
 
