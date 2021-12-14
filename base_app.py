@@ -154,353 +154,353 @@ def main():
     st.image("resources/imgs/climate.jpeg", width=700)
 
     # Building out the "Home" page
-    # if selection == "Home":
-    #     st.write("The war of good and evil between believers and non believers")
+    if selection == "Home":
+        st.write("The war of good and evil between believers and non believers")
 
-    #     # Create and generate a word cloud image:
-    #     wordcloud_pro = WordCloud(
-    #         max_font_size=50, max_words=100, background_color="white"
-    #     ).generate(tweet_pro)
-    #     wordcloud_neutral = WordCloud(
-    #         max_font_size=50, max_words=100, background_color="white"
-    #     ).generate(tweet_neutral)
-    #     wordcloud_news = WordCloud(
-    #         max_font_size=50, max_words=100, background_color="white"
-    #     ).generate(tweet_news)
-    #     wordcloud_anti = WordCloud(
-    #         max_font_size=50, max_words=100, background_color="white"
-    #     ).generate(tweet_anti)
+        # Create and generate a word cloud image:
+        wordcloud_pro = WordCloud(
+            max_font_size=50, max_words=100, background_color="white"
+        ).generate(tweet_pro)
+        wordcloud_neutral = WordCloud(
+            max_font_size=50, max_words=100, background_color="white"
+        ).generate(tweet_neutral)
+        wordcloud_news = WordCloud(
+            max_font_size=50, max_words=100, background_color="white"
+        ).generate(tweet_news)
+        wordcloud_anti = WordCloud(
+            max_font_size=50, max_words=100, background_color="white"
+        ).generate(tweet_anti)
 
-    #     # Create and generate a word cloud image:
-    #     wordcloud_pro1 = WordCloud(
-    #         max_font_size=50, max_words=100, background_color="white"
-    #     ).generate(hash_pro)
-    #     wordcloud_neutral0 = WordCloud(
-    #         max_font_size=50, max_words=100, background_color="white"
-    #     ).generate(hash_neutral)
-    #     wordcloud_news2 = WordCloud(
-    #         max_font_size=50, max_words=100, background_color="white"
-    #     ).generate(hash_news)
-    #     wordcloud_antineg = WordCloud(
-    #         max_font_size=50, max_words=100, background_color="white"
-    #     ).generate(hash_anti)
+        # Create and generate a word cloud image:
+        wordcloud_pro1 = WordCloud(
+            max_font_size=50, max_words=100, background_color="white"
+        ).generate(hash_pro)
+        wordcloud_neutral0 = WordCloud(
+            max_font_size=50, max_words=100, background_color="white"
+        ).generate(hash_neutral)
+        wordcloud_news2 = WordCloud(
+            max_font_size=50, max_words=100, background_color="white"
+        ).generate(hash_news)
+        wordcloud_antineg = WordCloud(
+            max_font_size=50, max_words=100, background_color="white"
+        ).generate(hash_anti)
 
-    #     # copy of the data frame
-    #     df_token = token_df.copy()
+        # copy of the data frame
+        df_token = token_df.copy()
 
-    #     # making the class analysis
-    #     class_options = [
-    #         "Class Pro",
-    #         "Class News",
-    #         "Class Neutral",
-    #         "Class Anti",
-    #         "overall analysis",
-    #     ]
-    #     class_selection = st.sidebar.selectbox("Choose Class Analysis", class_options)
+        # making the class analysis
+        class_options = [
+            "Class Pro",
+            "Class News",
+            "Class Neutral",
+            "Class Anti",
+            "overall analysis",
+        ]
+        class_selection = st.sidebar.selectbox("Choose Class Analysis", class_options)
 
-    #     if class_selection == "Class Pro":
-    #         # creating a page for the class pro
-    #         st.write(
-    #             "This page helps the user with the analysis of the most trending tweets, the trending  hashtags "
-    #             "and trending topics in the classes in Class Pro"
-    #         )
+        if class_selection == "Class Pro":
+            # creating a page for the class pro
+            st.write(
+                "This page helps the user with the analysis of the most trending tweets, the trending  hashtags "
+                "and trending topics in the classes in Class Pro"
+            )
 
-    #         # Creating a bar chart for the 25 most occurring words of class 1
-    #         class_1_data = df_token.sort_values("1", ascending=False).head(25)
-    #         data_set1 = {
-    #             "tokens": class_1_data["Unnamed: 0"],
-    #             "values": class_1_data["1"],
-    #         }
+            # Creating a bar chart for the 25 most occurring words of class 1
+            class_1_data = df_token.sort_values("1", ascending=False).head(25)
+            data_set1 = {
+                "tokens": class_1_data["Unnamed: 0"],
+                "values": class_1_data["1"],
+            }
 
-    #         df1 = pd.DataFrame(data_set1).set_index("tokens")
-    #         st.subheader("What Are The Trending Topics In Pro Class")
-    #         st.write(
-    #             "The most trending topics in the pro Believers class seems to be about climate change  as expected"
-    #         )
-    #         st.bar_chart(df1)
-    #         st.write(
-    #             "The data shows the climate change as the most trending topic and also gives links of videos "
-    #             "and sites where people can read further about these topic this is seen fromm the urlweb token, "
-    #             "this would be a nature of someone who believes in something, they would want to share more."
-    #         )
+            df1 = pd.DataFrame(data_set1).set_index("tokens")
+            st.subheader("What Are The Trending Topics In Pro Class")
+            st.write(
+                "The most trending topics in the pro Believers class seems to be about climate change  as expected"
+            )
+            st.bar_chart(df1)
+            st.write(
+                "The data shows the climate change as the most trending topic and also gives links of videos "
+                "and sites where people can read further about these topic this is seen fromm the urlweb token, "
+                "this would be a nature of someone who believes in something, they would want to share more."
+            )
 
-    #         st.subheader("Trending Tweets")
-    #         st.write(
-    #             "The most trending tweets in the believers class seem to be about alerts and fights against this "
-    #             "global threat of global warming."
-    #         )
-    #         # Display the generated wordcloud for class 1:
-    #         fig, ax = plt.subplots()
-    #         ax.imshow(wordcloud_pro, interpolation="bilinear")
-    #         ax.axis("off")
-    #         st.pyplot(fig)
-    #         st.write(
-    #             "The believers do what anybody who believes in something would do, they talk about "
-    #             "believing and that is what we do most of the time, we talk about who we are, they talk "
-    #             "about tackling the threat, the talk about the scientists who talk about these things "
-    #             "they talk about their leaders, they talk about the enthusiast of Eco friendly environment."
-    #         )
+            st.subheader("Trending Tweets")
+            st.write(
+                "The most trending tweets in the believers class seem to be about alerts and fights against this "
+                "global threat of global warming."
+            )
+            # Display the generated wordcloud for class 1:
+            fig, ax = plt.subplots()
+            ax.imshow(wordcloud_pro, interpolation="bilinear")
+            ax.axis("off")
+            st.pyplot(fig)
+            st.write(
+                "The believers do what anybody who believes in something would do, they talk about "
+                "believing and that is what we do most of the time, we talk about who we are, they talk "
+                "about tackling the threat, the talk about the scientists who talk about these things "
+                "they talk about their leaders, they talk about the enthusiast of Eco friendly environment."
+            )
 
-    #         # showing raw hashtags data
-    #         if st.checkbox("See the most retweeted tweets "):
-    #             st.subheader("Trending tweets and their counts")
-    #             st.write(pro_retweet.value_counts())
+            # showing raw hashtags data
+            if st.checkbox("See the most retweeted tweets "):
+                st.subheader("Trending tweets and their counts")
+                st.write(pro_retweet.value_counts())
 
-    #         st.subheader("What Are The Trending Hashtags")
-    #         st.write(
-    #             "The trending hashtags in the believers class are about taking the initiative of saving "
-    #             "the world, they are talking about the people and companies that are enthusiasts "
-    #         )
-    #         # Display the generated wordcloud for class 1:
-    #         fig, ax = plt.subplots()
-    #         ax.imshow(wordcloud_pro1, interpolation="bilinear")
-    #         ax.axis("off")
-    #         st.pyplot(fig)
-    #         st.write(
-    #             "projects like the one that has been initiated by the amp to mange and invest companies in"
-    #             "alignment with net zero emission by 2050.The EPA (environmental protection agency) which"
-    #             "deals with fighting the war of the global climate change"
-    #         )
+            st.subheader("What Are The Trending Hashtags")
+            st.write(
+                "The trending hashtags in the believers class are about taking the initiative of saving "
+                "the world, they are talking about the people and companies that are enthusiasts "
+            )
+            # Display the generated wordcloud for class 1:
+            fig, ax = plt.subplots()
+            ax.imshow(wordcloud_pro1, interpolation="bilinear")
+            ax.axis("off")
+            st.pyplot(fig)
+            st.write(
+                "projects like the one that has been initiated by the amp to mange and invest companies in"
+                "alignment with net zero emission by 2050.The EPA (environmental protection agency) which"
+                "deals with fighting the war of the global climate change"
+            )
 
-    #         # showing raw hashtags data
-    #         if st.checkbox("See trending hashtags"):
-    #             st.subheader("Trending hashtags and their counts")
-    #             st.write(pro_hash.value_counts())
+            # showing raw hashtags data
+            if st.checkbox("See trending hashtags"):
+                st.subheader("Trending hashtags and their counts")
+                st.write(pro_hash.value_counts())
 
-    #     if class_selection == "Class News":
-    #         st.write(
-    #             "This page helps the user with the analysis of the most trending tweets, the trending  hashtags "
-    #             "and trending topics in the classes in the Class News"
-    #         )
+        if class_selection == "Class News":
+            st.write(
+                "This page helps the user with the analysis of the most trending tweets, the trending  hashtags "
+                "and trending topics in the classes in the Class News"
+            )
 
-    #         # Creating a bar chart for the 25 most occurring words of class 2
-    #         class_2_data = df_token.sort_values("2", ascending=False).head(25)
+            # Creating a bar chart for the 25 most occurring words of class 2
+            class_2_data = df_token.sort_values("2", ascending=False).head(25)
 
-    #         data_set2 = {
-    #             "tokens": class_2_data["Unnamed: 0"],
-    #             "values": class_2_data["2"],
-    #         }
-    #         st.subheader("What Are The Trending Topics in class News")
-    #         st.write(
-    #             """The most common topics in the news class are the climate and change
-    #                     and we can see there are more url webs and news available.
-    #                 """
-    #         )
-    #         df2 = pd.DataFrame(data_set2).set_index("tokens")
-    #         st.bar_chart(df2)
+            data_set2 = {
+                "tokens": class_2_data["Unnamed: 0"],
+                "values": class_2_data["2"],
+            }
+            st.subheader("What Are The Trending Topics in class News")
+            st.write(
+                """The most common topics in the news class are the climate and change
+                        and we can see there are more url webs and news available.
+                    """
+            )
+            df2 = pd.DataFrame(data_set2).set_index("tokens")
+            st.bar_chart(df2)
 
-    #         # Display the generated wordcloud for class 2:
-    #         st.subheader("What Are Trending Tweets")
-    #         st.write(
-    #             """The most common things to the news people is send the the news about the trending
-    #         stories in the climate change topic.
-    #                 """
-    #         )
-    #         fig, ax = plt.subplots()
-    #         ax.imshow(wordcloud_news, interpolation="bilinear")
-    #         ax.axis("off")
-    #         st.pyplot(fig)
-    #         st.write(
-    #             """The most common things to the news people is send the the news about the trending
-    #         stories in the climate change topic. talking about Trump and EPA as the politics
-    #         on climate change, in the White House
-    #                 """
-    #         )
+            # Display the generated wordcloud for class 2:
+            st.subheader("What Are Trending Tweets")
+            st.write(
+                """The most common things to the news people is send the the news about the trending
+            stories in the climate change topic.
+                    """
+            )
+            fig, ax = plt.subplots()
+            ax.imshow(wordcloud_news, interpolation="bilinear")
+            ax.axis("off")
+            st.pyplot(fig)
+            st.write(
+                """The most common things to the news people is send the the news about the trending
+            stories in the climate change topic. talking about Trump and EPA as the politics
+            on climate change, in the White House
+                    """
+            )
 
-    #         # showing raw retweets data
-    #         if st.checkbox("See trending tweets"):
-    #             st.subheader("Trending tweets and their counts")
-    #             st.write(news_retweet.value_counts())
+            # showing raw retweets data
+            if st.checkbox("See trending tweets"):
+                st.subheader("Trending tweets and their counts")
+                st.write(news_retweet.value_counts())
 
-    #         st.subheader("What Are The Trending Hashtags")
-    #         st.write(
-    #             "The plans and talks around the US, India and Paris. The weather forecast from the "
-    #             "world. The China is known as the number one acting country in global warming. "
-    #         )
-    #         # Display the generated wordcloud for class 1:
-    #         fig, ax = plt.subplots()
-    #         ax.imshow(wordcloud_news2, interpolation="bilinear")
-    #         ax.axis("off")
-    #         st.pyplot(fig)
-    #         st.write(
-    #             """The most common things to the news people is send the the news about the trending
-    #         stories in the climate change topic. talking about Trump and EPA as the politics
-    #         on climate change, in the White House
-    #                 """
-    #         )
+            st.subheader("What Are The Trending Hashtags")
+            st.write(
+                "The plans and talks around the US, India and Paris. The weather forecast from the "
+                "world. The China is known as the number one acting country in global warming. "
+            )
+            # Display the generated wordcloud for class 1:
+            fig, ax = plt.subplots()
+            ax.imshow(wordcloud_news2, interpolation="bilinear")
+            ax.axis("off")
+            st.pyplot(fig)
+            st.write(
+                """The most common things to the news people is send the the news about the trending
+            stories in the climate change topic. talking about Trump and EPA as the politics
+            on climate change, in the White House
+                    """
+            )
 
-    #         # showing raw hashtags data
-    #         if st.checkbox("See trending hashtags"):
-    #             st.subheader("Trending tweets and their counts")
-    #             st.write(news_hash.value_counts())
+            # showing raw hashtags data
+            if st.checkbox("See trending hashtags"):
+                st.subheader("Trending tweets and their counts")
+                st.write(news_hash.value_counts())
 
-    #     if class_selection == "overall analysis":
-    #         st.write(
-    #             "This page helps the user with the analysis of all the classes combined to make a better "
-    #             "distribution of how data is distributed"
-    #         )
-    #         # Create a bar chart for the column of sentiment value counts
-    #         st.subheader("Sentiment Class count bar chart")
-    #         st.write(
-    #             "The data distribution shows imbalance amongst the classes the positive class having"
-    #             " the most data"
-    #         )
-    #         data = raw["sentiment"].value_counts()
-    #         st.bar_chart(data)
+        if class_selection == "overall analysis":
+            st.write(
+                "This page helps the user with the analysis of all the classes combined to make a better "
+                "distribution of how data is distributed"
+            )
+            # Create a bar chart for the column of sentiment value counts
+            st.subheader("Sentiment Class count bar chart")
+            st.write(
+                "The data distribution shows imbalance amongst the classes the positive class having"
+                " the most data"
+            )
+            data = raw["sentiment"].value_counts()
+            st.bar_chart(data)
 
-    #         # getting the lengths of tweets distribution
-    #         st.subheader("What is the average length of Tweets from each class")
-    #         st.write(
-    #             "Curiosity leads to asking what length of characters does each class use to voice out their "
-    #             "opinions in the fight of global warming, or their disbelief in it."
-    #         )
-    #         g1 = plot_target_based_features("length")
+            # getting the lengths of tweets distribution
+            st.subheader("What is the average length of Tweets from each class")
+            st.write(
+                "Curiosity leads to asking what length of characters does each class use to voice out their "
+                "opinions in the fight of global warming, or their disbelief in it."
+            )
+            g1 = plot_target_based_features("length")
 
-    #         st.subheader("What is the average number of words in a Tweet")
-    #         st.write(
-    #             "Curiosity leads to asking how many words does each class use to voice out their "
-    #             "opinions in the fight of global warming, or their disbelief in it. with this information we can "
-    #             "strt thinking about how much each community shares, cause you only share when you "
-    #             "have something to share"
-    #         )
-    #         # getting the length of number of words in a tweet
-    #         g2 = plot_target_based_features("no_words")
+            st.subheader("What is the average number of words in a Tweet")
+            st.write(
+                "Curiosity leads to asking how many words does each class use to voice out their "
+                "opinions in the fight of global warming, or their disbelief in it. with this information we can "
+                "strt thinking about how much each community shares, cause you only share when you "
+                "have something to share"
+            )
+            # getting the length of number of words in a tweet
+            g2 = plot_target_based_features("no_words")
 
-    #         st.subheader("What is the average number of unique words in a Tweet")
-    #         st.write(
-    #             "with the unique number of words we can try to find the vocabulary of these classes "
-    #             "but it seems as if the average number of unique words used by the believers are more, "
-    #             "interestingly followed by the Neutral the anti believers and then the news,"
-    #             "you would think the news would have more to say"
-    #         )
-    #         # Getting the number of unique words distribution
-    #         g3 = plot_target_based_features("unique_words")
+            st.subheader("What is the average number of unique words in a Tweet")
+            st.write(
+                "with the unique number of words we can try to find the vocabulary of these classes "
+                "but it seems as if the average number of unique words used by the believers are more, "
+                "interestingly followed by the Neutral the anti believers and then the news,"
+                "you would think the news would have more to say"
+            )
+            # Getting the number of unique words distribution
+            g3 = plot_target_based_features("unique_words")
 
-    #         # getting the distribution of less common words
+            # getting the distribution of less common words
 
-    #     if class_selection == "Class Neutral":
+        if class_selection == "Class Neutral":
 
-    #         # Creating a bar chart for the 25 most occurring words of class 0
-    #         class_0_data = df_token.sort_values("0", ascending=False).head(25)
-    #         data_set0 = {
-    #             "tokens": class_0_data["Unnamed: 0"],
-    #             "values": class_0_data["0"],
-    #         }
-    #         st.subheader("What Are The Trending Topics In The Neutral Class")
-    #         df0 = pd.DataFrame(data_set0).set_index("tokens")
-    #         st.write(
-    #             """The Neutral Tweets obviously ask and think a lot about the global climate change
-    #                 """
-    #         )
-    #         st.bar_chart(df0)
+            # Creating a bar chart for the 25 most occurring words of class 0
+            class_0_data = df_token.sort_values("0", ascending=False).head(25)
+            data_set0 = {
+                "tokens": class_0_data["Unnamed: 0"],
+                "values": class_0_data["0"],
+            }
+            st.subheader("What Are The Trending Topics In The Neutral Class")
+            df0 = pd.DataFrame(data_set0).set_index("tokens")
+            st.write(
+                """The Neutral Tweets obviously ask and think a lot about the global climate change
+                    """
+            )
+            st.bar_chart(df0)
 
-    #         # Display the generated wordcloud for class 1:
-    #         st.subheader("What AreTrending Tweets")
-    #         st.write(
-    #             "The people who want to know always seek information and ask a lot of questions"
-    #         )
-    #         fig, ax = plt.subplots()
-    #         ax.imshow(wordcloud_neutral, interpolation="bilinear")
-    #         ax.axis("off")
-    #         st.pyplot(fig)
-    #         st.write(
-    #             """The Neutral tweets show that people are kept in the dark about the things
-    #         that also contribute to the climate, although they talk about the penguin ans the leaders,
-    #         but they also want to know what to expect.
-    #                 """
-    #         )
+            # Display the generated wordcloud for class 1:
+            st.subheader("What AreTrending Tweets")
+            st.write(
+                "The people who want to know always seek information and ask a lot of questions"
+            )
+            fig, ax = plt.subplots()
+            ax.imshow(wordcloud_neutral, interpolation="bilinear")
+            ax.axis("off")
+            st.pyplot(fig)
+            st.write(
+                """The Neutral tweets show that people are kept in the dark about the things
+            that also contribute to the climate, although they talk about the penguin ans the leaders,
+            but they also want to know what to expect.
+                    """
+            )
 
-    #         # show trending retweets
-    #         if st.checkbox("Show trending tweets"):
-    #             st.subheader("Center Information data")
-    #             st.write(neutral_retweet.value_counts())
+            # show trending retweets
+            if st.checkbox("Show trending tweets"):
+                st.subheader("Center Information data")
+                st.write(neutral_retweet.value_counts())
 
-    #         st.subheader("Trending Hashtags")
-    #         st.write(
-    #             """The most common topics in hashtags are talking about the research done in various
-    #         institutions, they ask a lot of questions expecting answers of course.
-    #                 """
-    #         )
-    #         # Display the generated wordcloud for class 1:
-    #         fig, ax = plt.subplots()
-    #         ax.imshow(wordcloud_neutral0, interpolation="bilinear")
-    #         ax.axis("off")
-    #         st.pyplot(fig)
-    #         st.write(
-    #             """The Tsinghua university of China is leading major investigations on climate
-    #         change. DiCaprio is an enthusiast of this good change of looking out for the planet.
-    #                 """
-    #         )
+            st.subheader("Trending Hashtags")
+            st.write(
+                """The most common topics in hashtags are talking about the research done in various
+            institutions, they ask a lot of questions expecting answers of course.
+                    """
+            )
+            # Display the generated wordcloud for class 1:
+            fig, ax = plt.subplots()
+            ax.imshow(wordcloud_neutral0, interpolation="bilinear")
+            ax.axis("off")
+            st.pyplot(fig)
+            st.write(
+                """The Tsinghua university of China is leading major investigations on climate
+            change. DiCaprio is an enthusiast of this good change of looking out for the planet.
+                    """
+            )
 
-    #         # show raw trending hashtags
-    #         if st.checkbox("Show trending hashtags"):
-    #             st.subheader("Center Information data")
-    #             st.write(neutral_hash.value_counts())
+            # show raw trending hashtags
+            if st.checkbox("Show trending hashtags"):
+                st.subheader("Center Information data")
+                st.write(neutral_hash.value_counts())
 
-    #     if class_selection == "Class Anti":
+        if class_selection == "Class Anti":
 
-    #         # Creating a bar chart for the 25 most occurring words of class -1
-    #         class_neg_data = df_token.sort_values("-1", ascending=False).head(25)
+            # Creating a bar chart for the 25 most occurring words of class -1
+            class_neg_data = df_token.sort_values("-1", ascending=False).head(25)
 
-    #         data_set_neg = {
-    #             "tokens": class_neg_data["Unnamed: 0"],
-    #             "values": class_neg_data["-1"],
-    #         }
-    #         st.subheader("Top Trending topics")
-    #         st.write(
-    #             """To the anti believers think the whole thing is a scam, it is just a way to stop the US progress
-    #         in production since the production stream requires a lot of dumping and, the emission of co2, thus
-    #         they need to be st
-    #                 """
-    #         )
-    #         df_neg = pd.DataFrame(data_set_neg).set_index("tokens")
-    #         st.bar_chart(df_neg)
+            data_set_neg = {
+                "tokens": class_neg_data["Unnamed: 0"],
+                "values": class_neg_data["-1"],
+            }
+            st.subheader("Top Trending topics")
+            st.write(
+                """To the anti believers think the whole thing is a scam, it is just a way to stop the US progress
+            in production since the production stream requires a lot of dumping and, the emission of co2, thus
+            they need to be st
+                    """
+            )
+            df_neg = pd.DataFrame(data_set_neg).set_index("tokens")
+            st.bar_chart(df_neg)
 
-    #         # Display the generated wordcloud for class -1:
-    #         st.subheader("Trending Tweets")
-    #         st.write(
-    #             """The concerns are raised in the tax contribution of the climate change initiation"""
-    #         )
-    #         fig, ax = plt.subplots()
-    #         ax.imshow(wordcloud_anti, interpolation="bilinear")
-    #         ax.axis("off")
-    #         st.pyplot(fig)
-    #         st.write(
-    #             """The concerns are raised in the tax contribution of the climate change initiation. They think
-    #         the global warming crisis is just a hoax from China. The Trump and Obama beef on their outlook
-    #         on climate change seems to show.
-    #                 """
-    #         )
+            # Display the generated wordcloud for class -1:
+            st.subheader("Trending Tweets")
+            st.write(
+                """The concerns are raised in the tax contribution of the climate change initiation"""
+            )
+            fig, ax = plt.subplots()
+            ax.imshow(wordcloud_anti, interpolation="bilinear")
+            ax.axis("off")
+            st.pyplot(fig)
+            st.write(
+                """The concerns are raised in the tax contribution of the climate change initiation. They think
+            the global warming crisis is just a hoax from China. The Trump and Obama beef on their outlook
+            on climate change seems to show.
+                    """
+            )
 
-    #         if st.checkbox("Show trending tweets"):
-    #             st.subheader("Trending tweets and their counts")
-    #             st.write(anti_retweet.value_counts())
+            if st.checkbox("Show trending tweets"):
+                st.subheader("Trending tweets and their counts")
+                st.write(anti_retweet.value_counts())
 
-    #         st.subheader("Trending Hashtags")
-    #         st.write(
-    #             """The hashtags talks about being faked out, it also talks about the coal industries which use it
-    #         for produvtion.
-    #                 """
-    #         )
-    #         # Display the generated wordcloud for class 1:
-    #         fig, ax = plt.subplots()
-    #         ax.imshow(wordcloud_antineg, interpolation="bilinear")
-    #         ax.axis("off")
-    #         st.pyplot(fig)
-    #         st.write(
-    #             """The hashtags also talk about the things that scientists have once said will happen
-    #         but did not because of climate change, they talk about the normality of seasons based on what they
-    #         usually receive in a season based on the weather conditions.
-    #                 """
-    #         )
+            st.subheader("Trending Hashtags")
+            st.write(
+                """The hashtags talks about being faked out, it also talks about the coal industries which use it
+            for produvtion.
+                    """
+            )
+            # Display the generated wordcloud for class 1:
+            fig, ax = plt.subplots()
+            ax.imshow(wordcloud_antineg, interpolation="bilinear")
+            ax.axis("off")
+            st.pyplot(fig)
+            st.write(
+                """The hashtags also talk about the things that scientists have once said will happen
+            but did not because of climate change, they talk about the normality of seasons based on what they
+            usually receive in a season based on the weather conditions.
+                    """
+            )
 
-    #         if st.checkbox("Show trending hashtags and counts"):
-    #             st.subheader("Trending hashtags")
-    #             st.write(anti_hash.value_counts())
+            if st.checkbox("Show trending hashtags and counts"):
+                st.subheader("Trending hashtags")
+                st.write(anti_hash.value_counts())
 
-    #         if st.checkbox("Show Rare words in the tweets"):
-    #             st.subheader("Trending hashtags")
-    #             st.write(df_token.head())
+            if st.checkbox("Show Rare words in the tweets"):
+                st.subheader("Trending hashtags")
+                st.write(df_token.head())
 
     # Building out the predication page
     if selection == "Prediction":
